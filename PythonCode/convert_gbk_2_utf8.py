@@ -24,6 +24,5 @@ def convert_gbk_2_utf8(dir):
                 codecs.open(file_path, 'w', encoding='UTF-8').write(content)
             
 
-
 if __name__ == '__main__':
     convert_gbk_2_utf8(dir1)

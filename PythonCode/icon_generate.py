@@ -14,6 +14,7 @@ androidDir3 = '../frameworks/runtime-src/proj.android/res/drawable-mdpi/'
 androidDir4 = '../frameworks/runtime-src/proj.android/res/drawable-xhdpi/'
 newIconImg = Image.open(sourceFile)
 
+
 def list_icon_in_dir(path):
     files = []
     for f in os.listdir(path):
@@ -22,9 +23,10 @@ def list_icon_in_dir(path):
             files.append(file_path)
     return files
 
+
 def generate_icon_in_dir(path):
-    iconList = list_icon_in_dir(path)
-    for icon in iconList:
+    icon_list = list_icon_in_dir(path)
+    for icon in icon_list:
         im = Image.open(icon)
         if im.width == im.height:
             bgImg = Image.new('RGBA',im.size,(255,255,255,0))
@@ -34,8 +36,8 @@ def generate_icon_in_dir(path):
             bgImg.save(icon,'png')
             print 'replace %s' % (icon)
 
+
 if __name__ == '__main__':
-    #os.listdir(iosIconDir1)
     generate_icon_in_dir(iosIconDir)
     generate_icon_in_dir(iosIconDir1)
     generate_icon_in_dir(androidDir1)
